@@ -1,0 +1,54 @@
+{
+  "name": "basic_web_templete",
+  "version": "1.0.0",
+  "description": "frontend build tool",
+  "main": "index.js",
+  "scripts": {
+    "css:development": "cross-env NODE_ENV=development babel-node ./tasks/postcss.js",
+    "css:production": "cross-env NODE_ENV=production babel ./tasks/postcss.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://umezono@github.com/umezono/basic_web_templete.git"
+  },
+  "keywords": [
+    "frontend",
+    "html",
+    "css",
+    "js"
+  ],
+  "author": "takashi umezono",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umezono/basic_web_templete/issues"
+  },
+  "homepage": "https://github.com/umezono/basic_web_templete#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "chalk": "^2.4.1",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.5",
+    "glob": "^7.1.3",
+    "glob-base": "^0.3.0",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.22.2",
+    "npm-run-all": "^4.1.3",
+    "postcss": "^7.0.5",
+    "postcss-extend": "^1.0.5",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-import": "^12.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^4.1.0",
+    "postcss-preset-env": "^6.1.1",
+    "postcss-simple-vars": "^5.0.1",
+    "rimraf": "^2.6.2",
+    "stylelint": "^9.6.0",
+    "webpack": "^4.20.2"
+  }
+}
