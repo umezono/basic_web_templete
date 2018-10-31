@@ -25,7 +25,7 @@ const ctx = {
 
 let cssCompile = (ctx, cssFile) => {
 
-  postsccrc(ctx).then(({ plugins, options}) => {
+  postcssrc(ctx).then(({ plugins, options}) => {
     postcss(plugins)
       .process(cssFile, options)
       .then((result) => {
@@ -36,3 +36,4 @@ let cssCompile = (ctx, cssFile) => {
 }
 
 console.log(util);
+
