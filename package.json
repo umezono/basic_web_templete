@@ -4,8 +4,9 @@
   "description": "frontend build tool",
   "main": "index.js",
   "scripts": {
+    "css:local": "cross-env NODE_ENV=local babel-node ./tasks/postcss.js",
     "css:development": "cross-env NODE_ENV=development babel-node ./tasks/postcss.js",
-    "css:production": "cross-env NODE_ENV=production babel ./tasks/postcss.js",
+    "css:production": "cross-env NODE_ENV=production babel-node ./tasks/postcss.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -42,6 +43,7 @@
     "postcss-extend": "^1.0.5",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.0",
+    "postcss-load-config": "^2.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-mixins": "^6.2.0",
     "postcss-nested": "^4.1.0",
