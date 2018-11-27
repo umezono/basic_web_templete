@@ -129,5 +129,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#District Directory
+dist-local
+dist-development
+dist-production
 
 # End of https://www.gitignore.io/api/node,macos,windows

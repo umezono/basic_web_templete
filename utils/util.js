@@ -1,9 +1,10 @@
 'use strict';
 
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs-extra';
 import glob from 'glob';
 import globBase from 'glob-base';
+import chalk from 'chalk';
 
 export default class Util {
 
@@ -25,8 +26,8 @@ export default class Util {
       }
 
       return files;
-    })
-  }
+    });
+  };
 
   /**
   * Get synchronous match files
@@ -70,67 +71,97 @@ export default class Util {
     let fileDir = globBaseStats.replace('src', '');
 
     return path.join(destFolder, fileDir, `${fileBaseName}${fileExtName}`);
-  }
+  };
 
   /**
   * ファイル読み込み関数
   * @param {string} Read file path(file name)
   * @return {string} Data in the file
   */
-  static readFile(path) {
-    fs.readFile(path, 'utf8', function (err, data) {
-      if (err) {
-          throw chalk.bgRed(err);
-      }
-
-      return data;
+  static readFileSync(path) {
+    return new Promise((resolve, reject) => {
+      fs.readFile(path, 'utf8', (err, data) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve(data);
+      });
     });
-  }
+  };
 
   /**
   * ファイルの書き込み関数
   * @param {string} File path(file name)
   * @param {data} File data
   */
-  static writeFile(path, data) {
-    fs.writeFile(path, data, function (err) {
-      if (err) {
-          throw chalk.bgRed(err);
-      }
+  static writeFileSync(path, data) {
+    return new Promise((resolve, reject) => {
+      fs.writeFile(path, data, (err) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve();
+      });
     });
-  }
+  };
 
   /**
   * ファイルの追記関数
   * @param {string} File path(file name)
   * @param {data} File data
   */
-  static appendFile(path, data) {
-    fs.appendFile(path, data, function (err) {
-      if (err) {
-          throw err;
-      }
+  static appendFileSync(path, data) {
+    return new Promise((resolve, reject) => {
+      fs.appendFile(path, data, (err) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve();
+      });
     });
-  }
+  };
 
   /**
   * ファイルの削除関数
   * @param {string} File path(file name)
   */
-  static unlink(path) {
-    fs.unlink(path, function (err) {
-      if (err) {
-          throw err;
-      }
+  static unlinkSync(path) {
+    return new Promise((resolve, reject) => {
+      fs.unlink(path, (err) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve();
+      });
     });
-  }
+  };
+
+  /**
+  * 同期でのフォルダ作成
+  * @param {string} File path(file name)
+  */
+  static mkdirpSync(path) {
+    return new Promise((resolve, reject) => {
+      fs.mkdirp(path, (err) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve();
+      });
+    });
+  };
 
   /**
   * Error handle
   * @param {String} Before error message text
   */
   static handleError(text, e) {
-    console.log( chalk.bgRed(`${text} ${e.message}`) );
+    console.log(chalk.white.bold.bgRed(`${text} ${e.message}`));
   };
 
 }

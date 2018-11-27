@@ -1,7 +1,11 @@
-export default (ctx) => ({
+module.exports = (ctx) => ({
 
+  to: ctx.to,
+  from: ctx.from,
+  map: ctx.env === 'local' ? ctx.map : false,
   parser: ctx.parser ? 'sugarss' : false,
-  map: ctx.env === 'development' ? ctx.map : false,
+  syntax: ctx.syntax ? 'postcss-scss' : false,
+  stringifier: ctx.stringifier ? 'midas' : false,
   plugins: {
     'postcss-extend': {},
     'postcss-flexbugs-fixes': {},

@@ -1,4 +1,22 @@
-p {
+%wrap_size{
+  width: 1200px;
+}
+%basefont_color{
+  color: #0000ff;
+}
+
+p{
   font-weight: bold;
   color: red;
+  @media screen and (max-width: 767px){
+    color: black;
+  }
+}
+
+.hoge{
+  &_title{
+    font-size: 1.5em;
+    /* @extend %basefont_color; */
+  }
+  @extend %wrap_size;
 }
