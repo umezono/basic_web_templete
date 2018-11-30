@@ -1,8 +1,12 @@
 'use strict';
 
+import Setting from './setting';
+
 export default class Meta {
 
   constructor() {
+    this.setting = new Setting();
+
     this._init();
   };
 
@@ -18,8 +22,8 @@ export default class Meta {
       title: 'og title',
       description: 'og description',
       keywords: 'og keywords',
-      image: `/assets/hoge.jpg`,
-      url: `https://hoge.com`,
+      image: `${this.setting.location.host}/assets/shared/ogp-1.png`,
+      url: `${this.setting.location.host}`,
       type: 'type',
       site_name: 'og site_name',
       fb_app_id: 'id',
