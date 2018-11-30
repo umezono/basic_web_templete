@@ -14,8 +14,12 @@ import Setting from '../configs/setting';
 * ejs options object
 * https://ejs.co/
 */
-let options = {
+const options = {
   delimiter: '@'
+};
+
+const data = {
+  rootPath: process.cwd()
 };
 
 const ejsCompile = (file, data, options) => {
@@ -45,7 +49,7 @@ const ejsCompile = (file, data, options) => {
 
           await util.mkdirpSync(dist);
 
-          let renderHTML = await ejsCompile(file, {}, options);
+          let renderHTML = await ejsCompile(file, data, options);
 
           await util.writeFileSync(file.replace('src/view', `${setting.localDir.dir}`).replace('ejs', 'html'), renderHTML);
         });
