@@ -9,7 +9,7 @@ export default class Setting {
   _init() {
     this.srcDir = {
       dir: 'src',
-      ejs: 'ejs',
+      ejs: 'view',
       assets: 'assets',
       css: 'css',
       js: 'js'
