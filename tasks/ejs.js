@@ -21,7 +21,8 @@ const options = {
 
 const data = {
   rootPath: process.cwd(),
-  meta: new Meta()
+  meta: new Meta(),
+  setting: new Setting()
 };
 
 const ejsCompile = (file, data, options) => {
