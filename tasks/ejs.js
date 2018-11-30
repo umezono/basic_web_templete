@@ -9,6 +9,7 @@ import chalk from 'chalk';
 
 import util from '../utils/util';
 import Setting from '../configs/setting';
+import Meta from '../configs/meta';
 
 /**
 * ejs options object
@@ -19,7 +20,8 @@ const options = {
 };
 
 const data = {
-  rootPath: process.cwd()
+  rootPath: process.cwd(),
+  meta: new Meta()
 };
 
 const ejsCompile = (file, data, options) => {
