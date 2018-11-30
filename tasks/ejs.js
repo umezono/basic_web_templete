@@ -70,6 +70,4 @@ const ejsCompile = (file, data, options) => {
 
     console.log(chalk.white.bold.bgBlue(`ejs compile time ${moment().format('YYYY-MM-DD HH:mm:ss')}`));
 
-    // console.log(cssFiles);
-
 })();
