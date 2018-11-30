@@ -34,8 +34,10 @@ export default class Util {
   * @param {String} Serch string
   * @return {Array<String>} Files
   */
-  static getSyncFiles(pattern) {
-    return glob.sync(pattern);
+  static getSyncFiles(pattern, ignore) {
+    return glob.sync(pattern, {
+      ignore: ignore
+    });
   };
 
   /**
@@ -58,19 +60,24 @@ export default class Util {
   };
 
   /**
-  * Get dest path
+  * Get district path
   * @param {String} Glob pattern
-  * @param {String} Dest folder name
+  * @param {String} District folder name
   * @param {String} File path
-  * @return {String} Dest path
+  * @return {String} District path
   */
-  static getDestPath(pattern, destFolder, filePath) {
+  static getDistPath(pattern, destFolder, filePath) {
     let globBaseStats = globBase(pattern);
-    let fileExtName = path.extName(filePath);
-    let fileBaseName = path.baseName(filePath, fileExtName);
-    let fileDir = globBaseStats.replace('src', '');
+    let fileDir = globBaseStats.base.replace('src', '');
 
-    return path.join(destFolder, fileDir, `${fileBaseName}${fileExtName}`);
+    if (!filePath) {
+      return path.join(destFolder, fileDir);
+    } else {
+      let fileExtName = path.extName(filePath);
+      let fileBaseName = path.baseName(filePath, fileExtName);
+
+      return path.join(destFolder, fileDir, `${fileBaseName}${fileExtName}`);
+    }
   };
 
   /**

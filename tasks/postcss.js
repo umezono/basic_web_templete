@@ -52,7 +52,7 @@ const cssCompile = async (ctx, cssFile, destPass) => {
 
     const setting = new Setting();
 
-    let cssFiles = util.getSyncFiles('src/**/*.css');
+    let cssFiles = util.getSyncFiles('src/**/*.css', 'src/**/_*.css');
 
     try{
       if (process.env.NODE_ENV == 'local') {

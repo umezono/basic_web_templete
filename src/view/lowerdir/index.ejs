@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>lowerdir</title>
+</head>
+<body>
+
+<@ (() => { -@>
+<@ rootPath = process.cwd(); -@>
+<@ })(); -@>
+<@- include(`${rootPath}/src/view/common/_header`); @>
+
+  <p>lowerdir</p>
+
+<@- include(`${rootPath}/src/view/common/_footer`); @>
+
+</body>
+</html>
