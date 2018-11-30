@@ -22,7 +22,7 @@ export default class Meta {
       title: 'og title',
       description: 'og description',
       keywords: 'og keywords',
-      image: `${this.setting.location.host}/assets/shared/ogp-1.png`,
+      image: `${this.setting.location.host}/assets/images/shared/ogp-1.png`,
       url: `${this.setting.location.host}`,
       type: 'type',
       site_name: 'og site_name',
