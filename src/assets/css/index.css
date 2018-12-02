@@ -8,6 +8,7 @@
 p{
   font-weight: bold;
   color: red;
+  transform: translate(0);
   @media screen and (max-width: 767px){
     color: black;
   }
