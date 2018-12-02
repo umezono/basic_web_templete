@@ -21,10 +21,10 @@ module.exports = (ctx) => ({
     'postcss-nested': {},
     'postcss-preset-env': {
       stage: 2,
-      browsers: [
-        'last 2 versions',
-        '> 5%'
-      ],
+      // browsers: [
+      //   'last 2 versions',
+      //   '> 5%'
+      // ],
       autoprefixer: {},
     },
     'postcss-simple-vars': {},
