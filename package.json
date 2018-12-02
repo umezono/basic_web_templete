@@ -4,7 +4,7 @@
   "description": "frontend build tool",
   "main": "index.js",
   "scripts": {
-    "watch": "babel-node ./tasks/browsersync.js",
+    "browser": "node ./tasks/browsersync.js",
     "html:local": "cross-env NODE_ENV=local babel-node ./tasks/ejs.js",
     "html:development": "cross-env NODE_ENV=development babel-node ./tasks/ejs.js",
     "html:production": "cross-env NODE_ENV=production babel-node ./tasks/ejs.js",
@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/umezono/basic_web_templete#readme",
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
