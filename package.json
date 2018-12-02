@@ -4,12 +4,15 @@
   "description": "frontend build tool",
   "main": "index.js",
   "scripts": {
+    "watch": "babel-node ./tasks/browsersync.js",
     "html:local": "cross-env NODE_ENV=local babel-node ./tasks/ejs.js",
     "html:development": "cross-env NODE_ENV=development babel-node ./tasks/ejs.js",
     "html:production": "cross-env NODE_ENV=production babel-node ./tasks/ejs.js",
     "css:local": "cross-env NODE_ENV=local babel-node ./tasks/postcss.js",
     "css:development": "cross-env NODE_ENV=development babel-node ./tasks/postcss.js",
-    "css:production": "cross-env NODE_ENV=production babel-node ./tasks/postcss.js"
+    "css:production": "cross-env NODE_ENV=production babel-node ./tasks/postcss.js",
+    "build-dev": "npm-run-all *:development",
+    "build-pro": "npm-run-all *:production"
   },
   "repository": {
     "type": "git",
@@ -32,6 +35,7 @@
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "babel-loader": "^8.0.4",
+    "browser-sync": "^2.26.3",
     "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "cssnano": "^4.1.5",
