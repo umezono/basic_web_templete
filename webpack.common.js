@@ -33,6 +33,24 @@ module.exports = {
         test: /\.js$/,
         excude: /node_modules/,
         loader: 'eslint-loader',
+      },
+      {
+        // glslファイルの中でimportが使用できる
+        // https://www.npmjs.com/package/glslify-import-loader
+        test: /\.(glsl|frag|vert)$/,
+        exclude: /node_modules/,
+        loader: 'glslify-import-loader'
+      },
+      {
+        test: /\.(glsl|frag|vert)$/,
+        exclude: /node_modules/,
+        loader: 'raw-loader'
+      },
+      {
+        // https://github.com/glslify/glslify-loader
+        test: /\.(glsl|frag|vert)$/,
+        exclude: /node_modules/,
+        loader: 'glslify-loader'
       }
     ]
   },
