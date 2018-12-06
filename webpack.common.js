@@ -5,23 +5,24 @@ const path = require('path');
 module.exports = {
   // polyfillはIE11などで必要
   entry: {
-    head: ['@babel/polyfill', './src/assets/js/head.js'],
-    app: ['@babel/polyfill', './src/assets/js/index.js']
+    // head: ['@babel/polyfill', './src/assets/js/head.js'],
+    // app: ['@babel/polyfill', './src/assets/js/index.js']
+    head: './src/assets/js/head.js',
+    app: './src/assets/js/index.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        excude: /node_modules/,
+        exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
           // ローダーのオプション
           // 今回はbabel-loaderを利用しているため
           // babelのオプションを指定しているという認識で問題ない
           options: {
-            ["@babel/preset-env", {
-              modules: false
-            }]
+            presets: ["@babel/preset-env"],
+            plugins: ['@babel/plugin-transform-runtime']
           }
         }
       },
@@ -31,8 +32,8 @@ module.exports = {
         // 今回はbabel-loaderで変換する前にコードを検証したいため、指定が必要
         enforce: 'pre',
         test: /\.js$/,
-        excude: /node_modules/,
-        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
       },
       {
         // glslファイルの中でimportが使用できる
@@ -55,12 +56,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js', '.json', '.jsx', '.css']
   },
   // プラグインの設定
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery'
+      // $: 'jquery'
     }),
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
