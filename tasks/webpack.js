@@ -1,10 +1,11 @@
 'use strict';
 
+const chalk = require('chalk');
 const webpack = require('webpack');
 
-const localConfig = require('webpack.local');
-const devConfig = require('webpack.dev');
-const prodConfig = require('webpack.prod');
+const localConfig = require('../webpack.local');
+const devConfig = require('../webpack.dev');
+const prodConfig = require('../webpack.prod');
 
 (() => {
 
@@ -20,23 +21,25 @@ const prodConfig = require('webpack.prod');
 
   const compiler = webpack(config);
 
-  compiler.watch({}, (erroror, stats) => {
+  compiler.watch({
+    ignored: /node_modules/
+  }, (error, stats) => {
     if (error) {
-      console.erroror(error.stack || error);
+      console.error(chalk.white.bold.bgRed(error.stack || error));
       if (error.details) {
-        console.erroror(error.details);
+        console.error(chalk.white.bold.bgRed(error.details));
       }
       return;
     }
 
     const info = stats.toJson();
 
-    if (stats.haserrorors()) {
-      console.erroror(info.errorors);
+    if (stats.hasErrors()) {
+      console.error(chalk.white.bold.bgRed(info.error));
     }
 
     if (stats.hasWarnings()) {
-      console.warn(info.warnings);
+      console.warn(chalk.white.bold.bgYellow(info.warnings));
     }
   });
 
