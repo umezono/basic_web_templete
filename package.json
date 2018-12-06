@@ -11,6 +11,7 @@
     "css:local": "cross-env NODE_ENV=local babel-node ./tasks/postcss.js",
     "css:development": "cross-env NODE_ENV=development babel-node ./tasks/postcss.js",
     "css:production": "cross-env NODE_ENV=production babel-node ./tasks/postcss.js",
+    "js:local": "cross-env NODE_ENV=local babel-node ./tasks/webpack.js",
     "build:dev": "npm-run-all *:development",
     "build:pro": "npm-run-all *:production"
   },
