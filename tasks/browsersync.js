@@ -5,16 +5,10 @@
 
 // const bs = browserSync.create();
 
-const bs = require("browser-sync").create();
-const path = require("path");
+const bs = require('browser-sync').create();
+const path = require('path');
 
-bs.watch(`${process.cwd()}/dist-local/**`).on("change", bs.reload);
+const bsConfig = require('../bs-config');
+// import bsConfig from '../bs-config';
 
-bs.init({
-  // https: true,
-  port: 3000,
-  server: `${process.cwd()}/dist-local`,
-  // files: `${process.cwd()}/dist-local/**/*`
-  files: path.join(`${process.cwd()}/dist-local`, '/**/+(*.html|*.js|*.css)')
-  // "browser": ["firefox", "chrome"],
-});
+bs.init(bsConfig);
