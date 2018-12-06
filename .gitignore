@@ -131,7 +131,7 @@ $RECYCLE.BIN/
 
 #District Directory
 dist-local
-dist-development
-dist-production
+dist-dev
+dist-prod
 
 # End of https://www.gitignore.io/api/node,macos,windows
