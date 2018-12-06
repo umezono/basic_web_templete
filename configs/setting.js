@@ -44,7 +44,7 @@ export default class Setting {
       this.location = {
         protocol: 'http:',
         hostname: '//127.0.0.1',
-        port: ':6000'
+        port: ':3000'
       };
 
       this.location.host = `${this.location.protocol}${this.location.hostname}${this.location.port}`;
