@@ -23,14 +23,14 @@ export default class Setting {
     };
 
     this.developmentDir = {
-      dir: 'dist-development',
+      dir: 'dist-dev',
       assets: 'assets',
       css: 'css',
       js: 'js'
     };
 
     this.productionDir = {
-      dir: 'dist-production',
+      dir: 'dist-prod',
       assets: 'assets',
       css: 'css',
       js: 'js'
