@@ -14,6 +14,7 @@
     "js:local": "cross-env NODE_ENV=local webpack -w --config webpack.local.js",
     "js:development": "cross-env NODE_ENV=development webpack  --config webpack.dev.js",
     "js:production": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "start": "npm-run-all --parallel *:local browser",
     "build:dev": "npm-run-all *:development",
     "build:pro": "npm-run-all *:production"
   },
