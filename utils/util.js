@@ -1,12 +1,12 @@
 'use strict';
 
-import path from 'path';
-import fs from 'fs-extra';
-import glob from 'glob';
-import globBase from 'glob-base';
-import chalk from 'chalk';
+const path = require('path');
+const fs = require('fs-extra');
+const glob = require('glob');
+const globBase = require('glob-base');
+const chalk = require('chalk');
 
-export default class Util {
+module.exports = class Util {
 
   constructor() {
 

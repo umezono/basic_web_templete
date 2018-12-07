@@ -1,15 +1,15 @@
 'use strict';
 
-import fs from 'fs-extra';
+const fs = require('fs-extra');
 
-import ejs from 'ejs';
+const ejs = require('ejs');
 
-import moment from 'moment';
-import chalk from 'chalk';
+const moment = require('moment');
+const chalk = require('chalk');
 
-import util from '../utils/util';
-import Setting from '../configs/setting';
-import Meta from '../configs/meta';
+const util = require('../utils/util');
+const Setting = require('../configs/setting');
+const Meta = require('../configs/meta');
 
 /**
 * ejs options object

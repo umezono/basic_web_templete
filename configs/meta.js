@@ -1,8 +1,8 @@
 'use strict';
 
-import Setting from './setting';
+const Setting = require('./setting');
 
-export default class Meta {
+module.exports = class Meta {
 
   constructor() {
     this.setting = new Setting();

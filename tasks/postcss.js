@@ -1,15 +1,15 @@
 'use strict';
 
-import fs from 'fs-extra';
+const fs = require('fs-extra');
 
-import postcss from 'postcss';
-import postcssrc from 'postcss-load-config';
+const postcss = require('postcss');
+const postcssrc = require('postcss-load-config');
 
-import moment from 'moment';
-import chalk from 'chalk';
+const moment = require('moment');
+const chalk = require('chalk');
 
-import util from '../utils/util';
-import Setting from '../configs/setting';
+const util = require('../utils/util');
+const Setting = require('../configs/setting');
 
 /**
 * postcss.config.js argments

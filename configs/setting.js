@@ -1,6 +1,6 @@
 'use strict';
 
-export default class Setting {
+module.exports = class Setting {
 
   constructor() {
     this._init();
