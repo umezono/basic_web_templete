@@ -22,14 +22,14 @@ module.exports = class Setting {
       js: 'js'
     };
 
-    this.developmentDir = {
+    this.devtDir = {
       dir: 'dist-dev',
       assets: 'assets',
       css: 'css',
       js: 'js'
     };
 
-    this.productionDir = {
+    this.prodDir = {
       dir: 'dist-prod',
       assets: 'assets',
       css: 'css',
