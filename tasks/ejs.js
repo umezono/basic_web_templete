@@ -12,16 +12,12 @@ const util = require('../utils/util');
 const Setting = require('../configs/setting');
 const Meta = require('../configs/meta');
 
-/**
-* ejs options object
-* https://ejs.co/
-*/
-const options = {
-  delimiter: '@'
-};
-
 const meta = new Meta();
 const setting = new Setting();
+
+const ejsFiles = util.getSyncFiles('src/**/*.ejs', 'src/**/_*.ejs');
+
+let distDir;
 
 const data = {
   rootPath: process.cwd(),
@@ -29,9 +25,13 @@ const data = {
   setting: setting
 };
 
-const ejsFiles = util.getSyncFiles('src/**/*.ejs', 'src/**/_*.ejs');
-
-let distDir;
+/**
+* ejs options object
+* https://ejs.co/
+*/
+const options = {
+  delimiter: '@'
+};
 
 const ejsCompile = (file, data, options) => {
   return new Promise((resolve, reject) => {
