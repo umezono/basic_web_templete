@@ -88,11 +88,11 @@ module.exports = class Util {
   static readFileSync(path) {
     return new Promise((resolve, reject) => {
       fs.readFile(path, 'utf8', (err, data) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve(data);
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve(data);
       });
     });
   };
@@ -105,11 +105,11 @@ module.exports = class Util {
   static writeFileSync(path, data) {
     return new Promise((resolve, reject) => {
       fs.writeFile(path, data, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve();
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve();
       });
     });
   };
@@ -122,11 +122,11 @@ module.exports = class Util {
   static appendFileSync(path, data) {
     return new Promise((resolve, reject) => {
       fs.appendFile(path, data, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve();
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve();
       });
     });
   };
@@ -138,11 +138,11 @@ module.exports = class Util {
   static unlinkSync(path) {
     return new Promise((resolve, reject) => {
       fs.unlink(path, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve();
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve();
       });
     });
   };
@@ -154,11 +154,11 @@ module.exports = class Util {
   static mkdirpSync(path) {
     return new Promise((resolve, reject) => {
       fs.mkdirp(path, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve();
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve();
       });
     });
   };
