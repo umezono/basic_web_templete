@@ -50,8 +50,8 @@ const readyComplie = () => {
   try {
     let startTime = moment();
 
-    Promise.all(ejsFiles.map(
-      async (file) => {
+    Promise.all(
+      ejsFiles.map(async (file) => {
         let dist = await util.getDistPath(file, distDir).replace(`/${setting.srcDir.ejs}`, '');
 
         await util.mkdirpSync(dist);
@@ -112,18 +112,30 @@ const readyComplie = () => {
       // ファイルの追加、削除時の処理
       watcher.on('add', (path) => {
         watcher.add(path);
+
+        fs.copySync(path, path.replace('src/view', distDir).replace('.ejs', '.html'));
+
         console.log(chalk.white.bold.bgBlue(`watcher add file ${path}`));
       }).on('unlink', (path) => {
         watcher.unwatch(path);
+
+        fs.removeSync(path.replace('src/view', distDir).replace('.ejs', '.html'));
+
         console.log(chalk.white.bold.bgBlue(`watcher unlink file ${path}`));
       });
 
       // フォルダの追加、削除時の処理
       watcher.on('addDir', (path) => {
         watcher.add(path);
+
+        fs.mkdirpSync(path.replace('src/view', distDir));
+
         console.log(chalk.white.bold.bgBlue(`watcher add folder ${path}`));
       }).on('unlinkDir', (path) => {
         watcher.unwatch(path);
+
+        fs.removeSync(path.replace('src/view', distDir));
+
         console.log(chalk.white.bold.bgBlue(`watcher unlink folder ${path}`));
       });
 
